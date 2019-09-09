@@ -1,5 +1,6 @@
 package cn.bolianlai.handler;
 
+import cn.bolianlai.entity.Student;
 import cn.bolianlai.entity.User;
 import cn.bolianlai.entity.UserMap;
 import com.alibaba.fastjson.JSON;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.InternalResourceView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -274,6 +276,18 @@ public class HelloHandler {
         user.setId(1);
         user.setName("张三3");
         model.addAttribute("user", user);
+    }
+
+    @RequestMapping(value="dateConverterTest")
+    @ResponseBody
+    public String dateConverterTest(Date date){
+        return date.toString();
+    }
+
+    @RequestMapping(value="studentConverterTest")
+    @ResponseBody
+    public String studentConverterTest(Student student){
+        return student.toString();
     }
 
 
